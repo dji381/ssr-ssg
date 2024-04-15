@@ -1,0 +1,4 @@
+_pentatrion_vite:
+    prefix: /build
+    resource: "@PentatrionViteBundle/Resources/config/routing.yaml"
+    build_directory: custom-build 

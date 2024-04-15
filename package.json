@@ -1,0 +1,31 @@
+{
+  "name": "vue-app",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "npm run build:client && npm run build:server",
+    "build:noExternal": "npm run build:client && npm run build:server:noExternal",
+    "build:client": "vite build --ssrManifest .vite/ssr-manifest.json --outDir dist/client",
+    "build:server": "vite build --ssr assets/entry-server.js --outDir dist/server",
+    "build:server:noExternal": "vite build --config vite.config.noexternal.js --ssr entry-server.js --outDir dist/server",
+    "generate": "vite build --ssrManifest .vite/ssr-manifest.json --outDir dist/static && npm run build:server && node prerender",
+    "serve": "NODE_ENV=production",
+
+    "preview": "vite preview",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "vite-plugin-symfony": "^6.4.3",
+    "vue": "^3.4.15",
+    "vue-router": "^4.3.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.3",
+    "cypress": "^13.7.2",
+    "vite": "^5.1.0",
+    "vitest": "^1.4.0"
+  }
+}
